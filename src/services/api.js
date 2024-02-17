@@ -8,8 +8,9 @@ export const getServices = () => {
 
 export const addServices = () => {
   const data = {
-    name: "testing",
-    url: "https://youtube.com"
+    name: "Luiz",
+    url: "https://youtube.com",
+    description:"tttt"
   }
    
   axios.post("http://127.0.0.1:8000/services", data).then((response) => {
