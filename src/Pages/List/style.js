@@ -1,37 +1,41 @@
 import styled from "styled-components";
-import background from "../../assets/background.svg";
 
-export const Container = styled.div`
-  background-image: url(${background});
-  background-size: cover;
-
-  width: 100%;
-  height: 100vh;
+export const Container = styled.main`
+  max-width: 120rem;
+  margin: auto;
+  height: 100%;
+  padding: 2rem;
 `;
+
 export const List = styled.ul`
-  display: flex;
-  flex-direction: column;
-  gap: 1.6rem;
-  > li {
-    max-width: 57rem;
-    background-color: #ffffff 50%;
+margin: 4.5rem 0 2rem 0;
 
-    padding: 1.6rem 2.4rem;
-    text-align: center;
+display: flex;
+flex-direction: column;
+gap: 2rem;
 
-    border: 1px solid #ccc;
-    cursor: pointer;
-  }
-  > li a {
-    color: #fff;
-    width: 100%;
-  }
-`;
-export const Content = styled.main`
-  width: 100%;
+overflow: scroll;
+padding: 2rem;
 
-  padding-top: 10rem;
+height: 80rem;
 
-  display: flex;
-  justify-content: center;
-`;
+> li {
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.10);
+
+  width: 35rem;
+  padding: 1.6rem 2.4rem;
+  color: #fff;
+  text-align: center;
+  
+}
+> li a{
+  color: #fff;
+  
+
+  transition: color 0.3s ease;
+}
+> li a:hover{
+  color: #808080; 
+}
+`

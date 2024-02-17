@@ -12,6 +12,13 @@ export default createGlobalStyle`
 }
 body{
     font-size: 1.6rem;
+    background-color: #333333;
+   width: 100%;
+   height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 a{
     text-decoration: none;
