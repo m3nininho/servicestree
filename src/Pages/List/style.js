@@ -64,7 +64,6 @@ export const StyledModal = Modal.styled`
 position: relative;
   width: 80%;
   max-width: 80rem;
-  height: 33rem;
   padding: 2rem;
   text-align: center;
   background-color: #3c3c3c;
@@ -123,3 +122,10 @@ position: relative;
   background-color: #999;
 }
 `;
+export const SuccessOrError = styled.div`
+margin-top: 2rem;
+padding-bottom: 1rem;
+color: green;
+font-weight: bold;
+letter-spacing: .15rem;
+`
