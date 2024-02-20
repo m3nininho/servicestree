@@ -6,15 +6,16 @@ export const getServices = () => {
   });
 };
 
-export const addServices = () => {
-  const data = {
-    name: "Luiz",
-    url: "https://youtube.com",
-    description:"tttt"
+export const addServices = async (name, url, description) => {
+  try {
+    const response = await axios.post("http://127.0.0.1:8000/services", {
+      name: name,
+      url: url,
+      description: description,
+    });
+
+    return response.data;
+  } catch (error) {
+    throw error;
   }
-   
-  axios.post("http://127.0.0.1:8000/services", data).then((response) => {
-   console.log(response.data)
-  })
-  
 };

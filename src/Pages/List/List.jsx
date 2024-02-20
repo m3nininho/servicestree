@@ -2,8 +2,6 @@ import { useState, useEffect } from "react";
 import { addServices, getServices } from "../../services/api";
 import { Container, List, StyledModal, SuccessOrError } from "./style";
 
-import axios from "axios";
-
 function App() {
   const [data, setData] = useState([]);
   const [modalIsOpen, setIsOpen] = useState(false);
@@ -25,25 +23,25 @@ function App() {
   let handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      let res = await axios.post("http://127.0.0.1:8000/services", {
-        name: name,
-        url: url,
-        description: description,
-      });
-
-      if (res.status === 200) {
-        setName("");
-        setUrl("");
-        setdescription("");
-        setMessage("Link criado com sucesso");
+      if (name === "" || url === "" || description === "") {
+        alert("Está faltando preencher algum campo");
       } else {
-        setMessage("Ocorreu algum erro");
+        const newData = await addServices(name, url, description);
+    
+        if (newData) {
+          setData([...data, newData]);
+          setName("");
+          setUrl("");
+          setdescription("");
+          setMessage("Link criado com sucesso");
+        } else {
+          setMessage("Ocorreu algum erro");
+        }
       }
     } catch (err) {
       console.log(err);
     }
-  };
-
+  }
   return (
     <>
       <Container>
