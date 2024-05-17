@@ -19,3 +19,7 @@ export const addServices = async (name, url, description) => {
     throw error;
   }
 };
+
+export const deleteService = async(id) => {
+  axios.delete(`http://127.0.0.1:8000/services/${id}`)
+}

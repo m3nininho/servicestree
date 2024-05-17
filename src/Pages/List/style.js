@@ -48,6 +48,18 @@ export const List = styled.ul`
     padding: 1.6rem 2.4rem;
     color: #fff;
     text-align: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  > li img{
+    width: 1rem;
+    cursor: pointer;
+  }
+  > li button {
+    border: none;
+    background: none;
   }
   > li a {
     color: #fff;

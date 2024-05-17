@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
-import { addServices, getServices } from "../../services/api";
+import { addServices, deleteService, getServices } from "../../services/api";
 import { Container, List, StyledModal, SuccessOrError } from "./style";
+import x from "../../assets/x.svg";
 
 function App() {
   const [data, setData] = useState([]);
@@ -9,6 +10,7 @@ function App() {
   const [url, setUrl] = useState("");
   const [description, setdescription] = useState("");
   const [message, setMessage] = useState("");
+  const [id, setId] = useState("");
 
   function toggleModal(e) {
     setIsOpen(!modalIsOpen);
@@ -23,11 +25,11 @@ function App() {
   let handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      if (name === "" || url === "" || description === "") {
+      if (name == "" || url == "" || description == "") {
         alert("Está faltando preencher algum campo");
       } else {
         const newData = await addServices(name, url, description);
-    
+
         if (newData) {
           setData([...data, newData]);
           setName("");
@@ -41,7 +43,7 @@ function App() {
     } catch (err) {
       console.log(err);
     }
-  }
+  };
   return (
     <>
       <Container>
@@ -53,6 +55,14 @@ function App() {
                   <a href={itens.url} target="_blank">
                     {itens.name}
                   </a>
+                  <button
+                    onClick={() => {
+                      setId(itens.id);
+                      deleteService(id);
+                    }}
+                  >
+                    <img src={x} alt="" />
+                  </button>
                 </li>
               </>
             );
